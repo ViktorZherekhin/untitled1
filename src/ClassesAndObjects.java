@@ -15,12 +15,6 @@ public class ClassesAndObjects {   // это главный класс (публ
         Person person3 = new Person();
         person3.setNameAge("Michail", 68);
         person3.speak();
-
-
-
-
-
-
  }
 
 }
