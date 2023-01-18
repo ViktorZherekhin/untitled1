@@ -1,4 +1,4 @@
-public class ClassesAndObjects {   // это главный класс (публичный). Отмечен модификатором "pubkic"
+public class ClassesAndObjects {   // это главный класс (публичный). Отмечен модификатором "public"
                                     // имя этого класса и имя файла .java  должны совпадать
     public static void main(String[] args) {
         // создадим несколько людей на базе класса "Person":
