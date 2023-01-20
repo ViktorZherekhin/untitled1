@@ -2,14 +2,25 @@ import java.text.MessageFormat;
 
 public class keyWords {
     public static void main(String[] args) {
+        Human.description = "Joe Camel";
         Human human1 = new Human();             // создали объект класса "Human" (а сам класс задан ниже)
         human1.setAge(18);
         human1.setName("Viktor");
         human1.getInfo();
+        Human.getCountPeople();
+
         Human human2 = new Human("Bob", 84);   // это получилось благодаря созданию своего конструктора
         human2.getInfo();
+        Human.getCountPeople();
+
         Human human3 = new Human();  // здесь не задали параметры, поэтому они подставятся теми, что по-умолчанию
         human3.getInfo();
+        Human.getCountPeople();
+        System.out.println("--------------------");
+        Human.description = "Joe Camel2"; // к переменной класса можно обратиться напрямую (без создания объекта класса)
+        Human.getDescription();
+        System.out.println(Math.pow(2, 3)); // класс "Math" со статическим методом "pow" (возведение в степень)
+        System.out.println(Math.PI);        // статическая переменная (число "пи")
     }
 }
         // ключевое слово "This"
@@ -17,6 +28,16 @@ public class keyWords {
 class Human {
     String name;       // эти переменные называются переменными объекта,
     int age;        // т.к. у каждого объекта они разные (вообще говоря)
+
+    // ключевое слово "Static"
+    // Им обозначаются переменные и методы класса (НЕ объекта!)
+
+    public static String description;       // создали переменную класса
+                                            // она будет делиться между всеми объектами этого класса,
+                                            // т.е. она будет общей для всех объектов класса "Human"
+                                            // ей будет автомаический присвоена пустая строка (null),
+                                            // а для числа = 0
+    private static int countPeople;
 
     // пропишем Конструктор (который создается и выполняется по умолчанию, при создании объекта класса)
     // но, если мы его не пропишем здесь, а создадим только свой конструктор (с параметрами)
@@ -32,7 +53,8 @@ class Human {
     public Human(String name, int age){                                                 // методов"
         this.name = name;                                                               //
         this.age = age;                                                                 //
-    }
+        countPeople++;      // будет инкрементироваться при каждом новом                //
+    }                       // создании объекта
 
     // В одном классе мы можем иметь несколько методов с одинаковым названием
     // Главное, чтобы у них были разные параметры (по количеству  ?)
@@ -52,7 +74,7 @@ class Human {
     }                                   // мы можем только конкретному объекту
     public void setAge(int age){
         this.age = age;
-    }
+    }   // это метод объекта
     public String getName(){
         return name;
     }
@@ -61,10 +83,26 @@ class Human {
     }
     public void getInfo(){
         //System.out.println(name + ", " + age + "__" + name);
-        System.out.println(MessageFormat.format("Имя: {0}, возраст: {1}",
+        System.out.println(MessageFormat.format("Имя: {0}, возраст: {1}, description: {2}",
                 name,
-                age));
+                age,
+                description));
     }
+    public static void getCountPeople(){
+        System.out.println("Кол-во людей: " + countPeople);
+    }
+    public static void getDescription(){        // создали метод класса (статический)
+        System.out.println(description);        // он будет существовать, даже если мы
+    }                                           // не создадим ни одного объекта класса.
+                                                // Статический метод не может работать с переменными объекта!
+    // Статический метод - это функция (вообще говоря).
+    // И используется, когда ему не важны переменные объекта
+    // И когда нам не нужен объект класса, чтобы воспользоваться этим методом
+    // Например, в Java есть встроенный класс "Math", имеющий кучу статических методов (abs, asin, cos, и т.д.),
+    // и который можно использовать, не создавая объект класса
+
+
+
 
 }
 
@@ -79,6 +117,7 @@ class Human {
     // Конструктор отличается тем, что у него нет типа возвращаемого значения
     // И имя конструктора всегда должно совпадать с именем класса (т.е. так же с заглавной буквы)
 
+    // Предположим у нас есть офис, и нам нужно посчитать работников
 
 
 
