@@ -1,4 +1,4 @@
-package Interfaces;
+package Interfaces;   // Пакеты используются, чтобы логически группировать различные классы
 
 public class Test {
     public static void main(String[] args) {
