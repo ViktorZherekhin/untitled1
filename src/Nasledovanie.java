@@ -1,9 +1,10 @@
 public class Nasledovanie {
     public static void main(String[] args) {
-        Animal anim1 = new Animal();           // мы уже создавали ранее этот класс,
+        Animal anim1 = new Animal();           // мы уже создавали ранее этот класс (см. ClassesAndObjects.java),
                                                 // поэтому можем создать объект на его базе
         anim1.eat();            // таким образом наше животное умеет есть и спать
         anim1.sleep();
+
         Dog dog1 = new Dog();   // после того, как мы указали что класс "Dog" является наследником класса "Animal"
         dog1.eat();             // мы можем применить к объекту класса "Dog" те же методы
         dog1.sleep();           // но для "Dog" вызовется переопределнный метод eat()
@@ -14,5 +15,20 @@ public class Nasledovanie {
         // автоматически унаследуются от родительского класса "Animal"
 
         dog1.showName();
+        System.out.println("--------------");
+
+        // "Позднее связывание"
+        Animal anim2 = new Dog();
+        anim2.eat();                // т.е. вызвался переопределенный метод eat()
+        System.out.println("----/------/----");
+
+        action(dog1);           // применение Полиморфизма
+        action(anim1);          // Достоинства:
+                                //    - компактнее код.
+                                //    - одно действие на трех различных типах (классах).
+    }
+
+    public static void action(Animal animal){
+        animal.makeSound();
     }
 }

@@ -91,7 +91,9 @@ class Animal {
     public void sleep(){
         System.out.println("Animal is sleeping");
     }
-
+    public void makeSound() {
+        System.out.println("Animal makes common sound");
+    }
 }
 
 class Dog extends Animal {   // класс "Dog" более узкое понятие, чем "Animal"
@@ -110,5 +112,8 @@ class Dog extends Animal {   // класс "Dog" более узкое поня�
     }
     public void showName(){
         System.out.println(animalName);     // поле "animalName" так же унаследовано от родительского класса
+    }
+    public void makeSound(){
+        System.out.println("Dog says: gav-gav!");
     }
 }
