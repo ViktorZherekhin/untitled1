@@ -84,6 +84,7 @@ class Person {   // это вспомогательный класс (их мо�
 // создадим класс животных, которые умеют есть и спасть.
 class Animal {
     String animalName = "Any animal";
+
     private String animalColor = "yellow";      // к этой переменной у класса-наследника "Dog" уже не будет доступа
     public void eat(){
         System.out.println("Animal is eating");
@@ -94,7 +95,9 @@ class Animal {
     public void makeSound() {
         System.out.println("Animal makes common sound");
     }
+
 }
+
 
 class Dog extends Animal {   // класс "Dog" более узкое понятие, чем "Animal"
                             // этим мы записали, что класс "Dog" наследуется от класса "Animal",
@@ -116,4 +119,24 @@ class Dog extends Animal {   // класс "Dog" более узкое поня�
     public void makeSound(){
         System.out.println("Dog says: gav-gav!");
     }
+}
+
+class Animal2 {             // для урока по Generics создал
+    private int id;
+    public Animal2(){         // на уроке создали дефолтный конструктор, который ничего на входе не принимает
+                                 // чтобы не было ошибок
+     }
+    public Animal2(int id){
+        this.id = id;
+    }
+    public String toString(){               // переопределим этот метод, чтобы он возвращал "id" животного
+        return String.valueOf(id);          // конвертировали число в строку
+    }
+    public void eat(){                              // создали метод, специфичный только для "Animal2"
+        System.out.println("Animail is eating");
+    }
+}
+
+class Dog2 extends Animal2 {
+
 }

@@ -28,8 +28,40 @@ public class Generics {
         animals2.add("Bear");       // мы это указали в 1-й команде
         animals2.add("Elephant");
         String anim2 = animals2.get(1);     // теперь можно проще сделать (без DownCast, как выше)
+        System.out.println(anim2);
 
+        // создадим новый динамический массив
+        List<Animal2> zoo3 = new ArrayList<>();      // здесь могут храниться только объекты класса "Animal"
+        zoo3.add(new Animal2(1));
+        zoo3.add(new Animal2(2));
+        test(zoo3);
 
+        // Создадим еще один массив на базе класса "Dog"
+        List<Dog2> sobaki = new ArrayList<>();
+        sobaki.add(new Dog2());
+        sobaki.add(new Dog2());
+        test2(sobaki);
 
+    }
+
+    private static void test(List<Animal2> list1){
+        for (Animal2 animal: list1                   // цикл "For-each"
+             ) {
+            System.out.println(animal);     // при этом будет вызываться метод "toString", который объявлен
+        }                                   // у класса "Object" (родителя класса "Animal")
+    }
+
+    public static void test2(List<? extends Animal2> list2){     // благодаря такой записи мы можем
+        for (Animal2 animal : list2                             // подставлять Листы класса "Animal2"
+             ) {                                               // или любого класса-наследника "Animal2"
+            animal.eat();                                     // т.е. мы использовали "Wildcard"
+        }
+    }
+
+    public static void test3(List<? super Animal2> list2) {     // благодаря такой записи мы можем
+      /*  for (Animal2 animal : list2                            // подставлять Листы класса "Animal2"
+        ) {                                                   // или любого класса выше "Animal2"
+            animal.eat();                                   // но тогда этот код надо скорректировать
+        }  */                                                 // дальше не стал разбирать
     }
 }
