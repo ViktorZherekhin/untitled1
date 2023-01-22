@@ -13,10 +13,12 @@ public class Input {
         Scanner s = new Scanner(System.in);  // "System.in" - это стандартный поток входных данных
                                                 // создали объект класса "Scanner"
         System.out.println("Введите что-нибудь: ");
-        String str = s.nextLine();              // сюда будем сохранять то, что ввели с клавиатуры
+        String str = s.nextLine();              // сюда будем сохранять то, что ввели с клавиатуры (как строку)
         System.out.println("Вы ввели: " + str);
         System.out.println("Введите число: ");
-        int x = s.nextInt();
+        int x = s.nextInt();                    // сюда будем сохранять то, что ввели с клавиатуры (как число)
         System.out.println("Вы ввели: " + x);
+        Scanner sc1 = new Scanner(System.in );
+        String str2 = sc1.nextLine();
     }
 }
