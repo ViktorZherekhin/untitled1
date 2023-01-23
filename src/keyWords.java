@@ -109,7 +109,7 @@ class Human {
         System.out.println("Кол-во людей: " + countPeople);
     }
     public static void getDescription(){        // создали метод класса (статический)
-        System.out.println(description);        // он будет существовать, даже если мы
+        System.out.println(description);        // он будет работать, даже если мы
     }                                           // не создадим ни одного объекта класса.
                                                 // Статический метод не может работать с переменными объекта!
     // Статический метод - это функция (вообще говоря).
