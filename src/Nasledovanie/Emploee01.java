@@ -20,4 +20,8 @@ public class Emploee01 extends Person01 {
     // Человек -> Сотрудник -> Разработчик
     // к последнему можно добавить свойства (уровень - junior, middle, senio; язык разработки - Java, Python).
 
+    public void greeting(){
+        System.out.println("Привет! Я - работник! Меня зовут " + this.firstName);
+    }
+
 }

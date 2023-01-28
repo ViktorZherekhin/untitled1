@@ -49,4 +49,5 @@ public class Nasledovanie {
     public static void action(Animal animal){
         animal.makeSound();
     }
+    // Полиморфизм - это способность одного и того же фрагмента кода работать с разными типами данных
 }

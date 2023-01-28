@@ -30,6 +30,7 @@ public class Generics {
         String anim2 = animals2.get(1);     // теперь можно проще сделать (без DownCast, как выше)
         System.out.println(anim2);
 
+
         // создадим новый динамический массив
         List<Animal2> zoo3 = new ArrayList<>();      // здесь могут храниться только объекты класса "Animal"
         zoo3.add(new Animal2(1));

@@ -14,6 +14,7 @@ public class Arrays {
         arr1[0] = 10;
         arr1[1] = 20;  // так долго инициализировать, особенно если в нем 100 значений
                         // поэтому использует цикл "FOR"...
+
         for (int i = 0; i < arr1.length; i++){          // length = 5   в нашем случа
             arr1[i] = i * 10;
             System.out.println(arr1[i]);
