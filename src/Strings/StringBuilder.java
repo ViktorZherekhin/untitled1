@@ -1,8 +1,10 @@
+package Strings;
+
 public class StringBuilder {
 
     /*
     Изучим подробнее строки
-    и класс StringBuilder */
+    и класс Strings.StringBuilder */
 
         // В Java есть 2 типа объектов - mutable (изменяемый) и inmutable (неизменяемый)
         // Мы раньше создавали объекты классов. Они - изменяемые, т.е.
