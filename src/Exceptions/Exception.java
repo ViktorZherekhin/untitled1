@@ -2,6 +2,8 @@ package Exceptions;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Exception {
@@ -46,11 +48,33 @@ public class Exception {
             //throw new RuntimeException(e);
             System.out.println("Файл \"doc0.txt\" не найден");
         }
+
+        try {                               // каждое исключение обрабатывается в своем "catch" (по разному т.е.)
+            run();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {                                  // оба исключения обрабатываются одинково
+            run();                              // это называется "multi-catch"
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     public static void readFile() throws FileNotFoundException {       // здесь таким способом сделали обработку
         File file2 = new File("doc0.txt");                   // Исключения
         Scanner sc2 = new Scanner(file2);
+    }
+
+    // один метод может выбрасывать несколько исключений
+    // и если мы вызовем это метод в "Main", нам нужно будет и там включить обработку исключений
+    // (либо так же (с помощью "throws"), либо с помощью "try-catch" - см. выше
+    public static void run() throws IOException, ParseException, IllegalArgumentException {
+
     }
 
 }
